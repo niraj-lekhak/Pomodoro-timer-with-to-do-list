@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed');
+
+:root {
+  --bg-color: #bc94f8;
+  --bg-color-light: #f2e8e8;
+  --accent-color: #6e7582;
+  --accent-color-dark: #046582;
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-color);
+  color: #330fc6;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  min-height: 150vh;
+}
+
+h1 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 5rem;
+  color: #280b6c;
+  margin: 2rem 1rem;
+}
+
+.button {
+  position: relative;
+  top: -100px;
+  left: 40%;
+  color: #330fc6 ;
+  background-color: var(--bg-color);
+  box-shadow: 8px 8px 16px #956df1, -8px -8px 16px #956df1;
+  border-radius:23px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+section.pomodoro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--bg-color);
+  box-shadow: 8px 8px 16px #956df1,
+    -8px -8px 16px #956df1;
+}
+
+section.pomodoro .status {
+  font-size: 3rem;
+  color: 956df1;
+
+}
+
+section.pomodoro .timer {
+  color: #f3f6f9;
+  font-size: 6rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: .2rem;
+}
+
+.timer-btn,
+.reset-btn {
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: 'Merriweather Sans', sans-serif;
+  text-transform: uppercase;
+  padding: 1rem;
+  min-width: 4rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all .2s ease-out;
+  border: 1px solid transparent;
+}
+
+.timer-btn.start {
+  background-color: #000000;
+  border: 1px solid #eff2f6;
+}
+
+.timer-btn.pause {
+  background-color: #040101;
+  border: 1px solid var(--bg-color);
+}
+
+.timer-btn:hover,
+.reset-btn:hover {
+  transform: translateY(-.2rem);
+}
+
+.settings {
+  width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  margin: 2rem auto;
+}
+
+.work-duration h3,
+.break-duration h3 {
+  font-size: 2rem;
+}
+
+.settings .duration-display {
+  font-size: 3rem;
+  color: #001f3f;
+}
+
+.settings .duration-btn {
+  color: #fff;
+  width: 4rem;
+  height: 4rem;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  margin: 1rem;
+  background: var(--bg-color);
+  box-shadow: 5px 5px 10px #956df1,
+    -5px -5px 10px #956df1;
+  cursor: pointer;
+  will-change: transform;
+  transition: .3s all ease-out;
+}
+
+.settings .duration-btn:hover {
+  background: #af605a;
+  transform: scale(1.05);
+}
+
+.settings .reset-btn {
+  background: #000000;
+  border: 1px solid #fff;
+}
+
+.to-do {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr 12fr 1fr;
+  grid-gap: 1rem;
+  width: 600px;
+  margin: 0 auto 4rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--bg-color);
+  box-shadow: 8px 8px 16px #956df1,
+    -8px -8px 16px #956df1;
+}
+
+.to-do h2 {
+  font-size: 4rem;
+  grid-column: 1 / -1;
+}
+
+.to-do form {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: .5rem;
+  place-content: center;
+  grid-template-rows: 2.5rem;
+}
+
+.to-do form input,
+.to-do form button {
+  padding: .5rem;
+  border-radius: .5rem;
+  border: 0;
+
+}
+
+.to-do form input {
+  background-color: rgba(236, 227, 227, 0.9);
+  font-size: 1rem;
+}
+
+.to-do form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #046582;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  will-change: transform;
+  transition: all .4s ease;
+}
+
+.to-do form button:hover {
+  transform: scale(1.01);
+}
+
+.to-do ul.task-list {
+  grid-column: 2;
+  list-style-type: none;
+  transition: all .5s ease;
+}
+
+.to-do ul.task-list li {
+  display: grid;
+  grid-template-columns: .1fr 8fr 1fr;
+  place-content: center;
+  font-size: 1.5rem;
+  text-align: left;
+  padding: 1rem;
+  margin: .5rem 0;
+  color: #000000;
+  background: rgba(234, 229, 229, 0.9);
+  border: 2px solid var(--bg-color-light);
+  border-radius: .5rem;
+}
+
+.to-do ul.task-list li input[type="checkbox"] {
+  opacity: 0;
+}
+
+.to-do ul.task-list li label {
+  align-self: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.to-do ul.task-list li.completed label {
+  text-decoration: line-through;
+}
+
+.to-do ul.task-list li button {
+  /*background: none;*/
+  background-color: #e5f0fa;
+  background: linear-gradient(90deg, rgba(0, 31, 63, 1) 0%, rgba(0, 31, 63, 1) 10%, rgba(132, 150, 169, 1) 10%, rgba(132, 150, 169, 1) 30%, rgba(0, 31, 63, 1) 30%);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  /*animation: simple-text-gradient-rev .6s ease forwards;*/
+}
+
+.to-do ul.task-list li button:hover {
+  animation: simple-text-gradient-rev .6s ease forwards;
+}
+
+@keyframes simple-text-gradient {
+  0% {
+    background-size: 650%;
+  }
+
+  40% {
+    background-size: 650%;
+  }
+
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes simple-text-gradient-rev {
+  0% {
+    background-size: 100%;
+  }
+
+  80% {
+    background-size: 650%;
+  }
+
+  100% {
+    background-size: 650%;
+  }
+}
+
+@media (max-width: 599px) {
+
+  body {
+    min-height: 180vh;
+  }
+
+  header {
+    max-width: 350px;
+  }
+
+  header h1 {
+    font-size: 4rem;
+    margin: 2rem auto;
+  }
+
+  section.pomodoro {
+    width: 95%;
+  }
+
+  .settings {
+    width: 95%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+  }
+
+  .settings .work-duration {
+    grid-row: 2 / span 1;
+  }
+
+  .reset-btn {
+    grid-row: 1;
+    margin-bottom: 2rem;
+  }
+
+  .to-do {
+    width: 95%;
+    grid-template-columns: 1fr 100fr 1fr;
+    grid-gap: .8rem;
+    min-height: 120px;
+  }
+
+  .to-do form {
+    grid-template-columns: 3fr 1fr;
+  }
+
+  .to-do form input {
+    font-size: 1.2rem;
+    min-height: 3rem;
+  }
+
+  .to-do form button {
+    font-size: 1.5rem;
+    min-height: 3rem;
+  }
+}

@@ -1,0 +1,204 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .center {
+            width: 450px;
+            height: 370px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 8px;
+        }
+
+        .input-text {
+            outline: none;
+            height: 34px;
+            margin: auto;
+            display: block;
+            width: 300px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background-color: transparent;
+            padding-bottom: 0px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+
+        h2 {
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: normal;
+        }
+
+
+        p {
+            cursor: pointer;
+            width: 300px;
+            margin: auto;
+            display: block;
+            text-align: end;
+            font-size: 13.5px;
+            margin-bottom: 30px;
+            color: #1976D2;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: normal;
+        }
+
+
+        .input-pswd {
+            padding-left: 20px;
+            outline: none;
+            height: 34px;
+            margin: auto;
+            display: block;
+            width: 300px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background-color: transparent;
+            padding-bottom: 0px;
+            margin-bottom: 20px;
+        }
+
+
+        .input-btn {
+            cursor: pointer;
+            display: block;
+            width: 300px;
+            margin: auto;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #1976D2;
+            color: white;
+            border-color: #1976D2;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        body {
+            background: center, url('lp.jpg');
+            background-size: cover;
+        }
+
+        .signup-text {
+            text-align: center;
+            color: rgb(12, 11, 11);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: normal;
+        }
+
+        span[id="sign"] {
+            color: #1976D2;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: normal;
+            cursor: pointer;
+        }
+
+        .fa-user {
+            float: left;
+            margin-left: 75px;
+            margin-top: -45px;
+            position: relative;
+            z-index: 2;
+
+        }
+
+        .fa-lock {
+            float: left;
+            margin-left: 75px;
+            margin-top: -45px;
+            position: relative;
+            z-index: 2;
+
+        }
+
+        .fa-envelope {
+            float: left;
+            margin-left: 75px;
+            margin-top: -45px;
+            position: relative;
+            z-index: 2;
+        }
+
+        i[id="eyetoggle"] {
+            float: right;
+            margin-right: 75px;
+            margin-top: -44px;
+            position: relative;
+            display: none;
+        }
+
+        label[id="male"] {
+            padding-left: 34px;
+            width: 120px;
+            display: inline-block;
+            margin: auto;
+            text-align: center;
+        }
+
+        label[id="female"] {
+            width: 150px;
+            padding-left: 0px;
+            display: inline-block;
+            text-align: start;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="center">
+        <form action="/userRegistration" method="post">
+            <h2>Sign up</h2>
+            <input class="input-text" placeholder="Name" name="Username" onfocus="myFunction(this)" type="text" />
+            <i class="fa-solid fa-user"></i>
+            <input class="input-text" placeholder="Email" name="email" onfocus="myFunction(this)" type="email" />
+            <i class="fa-solid fa-envelope"></i>
+            <input class="input-pswd" placeholder="Password" name="pswd" onclick="showPassword(this)" type="password" />
+            <i id="eyetoggle" class="fa-solid fa-eye-slash"></i>
+            <i class="fa-solid fa-lock"></i>
+            <!-- <input id="button-picker" type="date" /> -->
+
+            <label id="male"><input type="radio" name="gender" />Male</label>
+            <label id="female"><input type="radio" name="gender" />Female</label>
+
+            <input class="input-btn" type="submit" value="Sign up" />
+
+            <p class="signup-text" color="black">Already have an account? <span id="sign" onclick="signupPage()">Sign
+                    in</span></p>
+        </form>
+    </div>
+   
+    <script>
+        function signupPage() {
+            history.back();
+        }
+
+        document.querySelector(".input-pswd").addEventListener("input", () => {
+            if (document.querySelector(".input-pswd").value.length > 0)
+                document.querySelector("#eyetoggle").style.display = "block";
+            else
+                document.querySelector("#eyetoggle").style.display = "none";
+        });
+        document.querySelector('#eyetoggle').addEventListener("click", () => {
+
+            document.querySelector('#eyetoggle').classList.toggle('fa-eye')
+            if (document.querySelector('.input-pswd').getAttribute('type') === 'password')
+                document.querySelector('.input-pswd').setAttribute('type', 'text')
+            else
+                document.querySelector('.input-pswd').setAttribute('type', 'password')
+        })
+    </script>
+</body>
+
+</html>
